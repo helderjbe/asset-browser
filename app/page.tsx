@@ -3,13 +3,16 @@
 import { assets } from "../data/assets";
 import { AssetCard } from "../components/AssetCard";
 import { useMemo, useState } from "react";
+import { Asset } from "../types";
+import { Tabs } from "../components/Tabs";
+import { SearchBar } from "../components/SearchBar";
 
 const TAB_LABELS = ["Featured", "KPI", "Layouts", "Storyboards"] as const;
 type Tab = (typeof TAB_LABELS)[number];
 
 export default function LibraryPage() {
   const [query, setQuery] = useState("");
-  const [activeTab, setActiveTab] = useState<Tab | null>("Featured");
+  const [activeTab, setActiveTab] = useState<Tab>("Featured");
   const [selectedAsset, setSelectedAsset] = useState<Asset | null>(null);
   const [expanded, setExpanded] = useState<"Featured" | "Trending" | null>(
     null
