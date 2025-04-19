@@ -45,6 +45,16 @@
            shadow-[var(--shadow-card)];
   }
 
+  .modal {
+    @apply fixed inset-0 z-50 grid place-items-center overflow-y-auto px-4;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+  .modal-content {
+    @apply w-full max-w-3xl rounded-[var(--radius-lg)] bg-[var(--color-surface)]
+           shadow-[var(--shadow-modal)] p-6;
+  }
+
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-[var(--radius-md)]
            bg-[var(--color-primary)] px-3 py-2 text-xs text-white font-medium
@@ -64,5 +74,10 @@
     content: "";
     @apply absolute left-1/2 -bottom-0.5 h-0.5 w-2/3 -translate-x-1/2
            bg-[var(--color-accent)] rounded-full;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full bg-slate-100
+           px-2 py-0.5 text-xs text-slate-600;
   }
 }

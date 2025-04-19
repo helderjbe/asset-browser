@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import { Asset } from "../types";
 import { Tabs } from "../components/Tabs";
 import { SearchBar } from "../components/SearchBar";
+import { AssetModal } from "../components/modals/AssetModal";
 
 const TAB_LABELS = ["Featured", "KPI", "Layouts", "Storyboards"] as const;
 type Tab = (typeof TAB_LABELS)[number];
