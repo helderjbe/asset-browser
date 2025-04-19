@@ -3,10 +3,10 @@
 import { useRef, MouseEvent } from "react";
 import type { Asset, AssetType } from "../../types";
 
-import KPI from "./KPI";
-import DataViz from "./DataViz";
-import Layout from "./Layout";
-import Storyboard from "./Storyboard";
+import { KPI } from "./KPI";
+// import DataViz from "./DataViz";
+// import Layout from "./Layout";
+// import Storyboard from "./Storyboard";
 
 interface AssetModalProps {
   open: boolean;
@@ -16,9 +16,9 @@ interface AssetModalProps {
 
 const variantMap: Record<AssetType, React.ComponentType<{ asset: Asset }>> = {
   kpi: KPI,
-  dataviz: DataViz,
-  layout: Layout,
-  storyboard: Storyboard,
+  // dataviz: DataViz,
+  // layout: Layout,
+  // storyboard: Storyboard,
 } as const;
 
 export const AssetModal = ({ open, asset, onClose }: AssetModalProps) => {
@@ -27,7 +27,7 @@ export const AssetModal = ({ open, asset, onClose }: AssetModalProps) => {
 
   if (!open || !asset) return null;
 
-  // const Variant = variantMap[asset.type];
+  const Variant = variantMap[asset.type];
 
   return (
     <div
@@ -87,7 +87,7 @@ export const AssetModal = ({ open, asset, onClose }: AssetModalProps) => {
           </div>
         </header>
 
-        {/* <Variant asset={asset} /> */}
+        <Variant asset={asset} />
 
         <footer className="mt-8 pt-4 flex justify-end">
           <button className="btn-primary w-full bg-slate-900">
