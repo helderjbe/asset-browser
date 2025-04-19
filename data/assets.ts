@@ -102,4 +102,17 @@ export const assets: Asset[] = [
     updatedAt: "2024/07/02",
     kpisUsed: ["kpi-1", "kpi-2"],
   },
+  {
+    id: "storyboard-2",
+    name: "Storyboard 2",
+    type: "storyboard",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    pages: 5,
+    tags: ["tag1", "tag2"],
+    uses: 999,
+    affiliateApplicability: ["Affiliate1"],
+    updatedAt: "2024/07/02",
+    kpisUsed: ["kpi-1", "kpi-2"],
+  },
 ];

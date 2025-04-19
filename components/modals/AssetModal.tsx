@@ -4,9 +4,9 @@ import { useRef, MouseEvent } from "react";
 import type { Asset, AssetType } from "../../types";
 
 import { KPI } from "./KPI";
-// import DataViz from "./DataViz";
-// import Layout from "./Layout";
-// import Storyboard from "./Storyboard";
+import { DataViz } from "./DataViz";
+import { Layout } from "./Layout";
+import { Storyboard } from "./Storyboard";
 
 interface AssetModalProps {
   open: boolean;
@@ -16,9 +16,9 @@ interface AssetModalProps {
 
 const variantMap: Record<AssetType, React.ComponentType<{ asset: Asset }>> = {
   kpi: KPI,
-  // dataviz: DataViz,
-  // layout: Layout,
-  // storyboard: Storyboard,
+  dataviz: DataViz,
+  layout: Layout,
+  storyboard: Storyboard,
 } as const;
 
 export const AssetModal = ({ open, asset, onClose }: AssetModalProps) => {
