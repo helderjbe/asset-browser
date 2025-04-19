@@ -2,7 +2,7 @@
 
 ## Priority
 
-- UI / UX Manipulation considering the role. Implications: Focus on UI, not API integration.
+- UI / UX Manipulation. Implications: Focus on UI, not API integration.
 
 ## Assumptions
 
