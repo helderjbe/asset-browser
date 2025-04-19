@@ -1,5 +1,6 @@
 "use client";
 
+import { AssetCard } from "../components/AssetCard";
 import { useMemo, useState } from "react";
 
 const TAB_LABELS = ["Featured", "KPI", "Layouts", "Storyboards"] as const;
