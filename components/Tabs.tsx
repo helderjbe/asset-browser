@@ -1,12 +1,17 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 export interface TabsProps<T extends string = string> {
   tabs: readonly T[];
   activeTab: T;
   onChange: (tab: T) => void;
   className?: string;
+}
+
+export interface Tab {
+  id: string;
+  label: string;
 }
 
 export const Tabs = <T extends string = string>({
@@ -18,6 +23,17 @@ export const Tabs = <T extends string = string>({
   const indicatorRef = useRef<HTMLSpanElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
+  useEffect(() => {
+    const activeIndex = tabs.indexOf(activeTab);
+    const activeTabElement = tabRefs.current[activeIndex];
+
+    if (indicatorRef.current && activeTabElement) {
+      const { offsetLeft, offsetWidth } = activeTabElement;
+      indicatorRef.current.style.transform = `translateX(${offsetLeft}px)`;
+      indicatorRef.current.style.width = `${offsetWidth}px`;
+    }
+  }, [activeTab, tabs]);
+
   return (
     <div
       role="tablist"
@@ -26,7 +42,6 @@ export const Tabs = <T extends string = string>({
       <span
         ref={indicatorRef}
         className="absolute top-1 left-0 h-[calc(100%-0.5rem)] rounded-[var(--radius-md)] bg-[var(--color-surface)] shadow-[var(--shadow-card)] transition-transform duration-300"
-        style={{ width: 0 }}
         aria-hidden="true"
       />
 

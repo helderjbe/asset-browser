@@ -28,8 +28,6 @@ export default function LibraryPage() {
   }, []);
 
   const filteredAssets = useMemo(() => {
-    if (!query) return null;
-
     const lower = query.toLowerCase();
     return assets.filter((asset) => {
       return (
