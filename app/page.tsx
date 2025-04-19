@@ -20,12 +20,14 @@ export default function LibraryPage() {
   );
 
   const featuredAssets = useMemo(() => {
-    return assets.slice(0, 4);
-  }, []);
+    const count = expanded === "Featured" ? 6 : 4;
+    return assets.slice(0, count);
+  }, [expanded]);
 
   const trendingAssets = useMemo(() => {
-    return assets.slice(4, 8);
-  }, []);
+    const count = expanded === "Trending" ? 6 : 4;
+    return assets.slice(4, 4 + count);
+  }, [expanded]);
 
   const filteredAssets = useMemo(() => {
     const lower = query.toLowerCase();
@@ -73,8 +75,15 @@ export default function LibraryPage() {
             <section key={title} className="mt-10">
               <div className="mb-4 flex items-center">
                 <h2 className="text-2xl font-semibold mr-5">{title}</h2>
-                <button className="text-xs text-primary hover:underline cursor-pointer">
-                  Show More
+                <button
+                  className="text-xs text-primary hover:underline cursor-pointer"
+                  onClick={() =>
+                    setExpanded((prev) =>
+                      prev === title ? null : (title as "Featured" | "Trending")
+                    )
+                  }
+                >
+                  {expanded === title ? "Show Less" : "Show More"}
                 </button>
               </div>
               <div className="grid gap-6 sm:grid-cols-2">
@@ -86,6 +95,11 @@ export default function LibraryPage() {
                   />
                 ))}
               </div>
+              {expanded === title && (
+                <p className="mt-4 text-center text-[var(--color-muted)]">
+                  Not seeing what you need? Try searching.
+                </p>
+              )}
             </section>
           ))}
         </>
