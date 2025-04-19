@@ -16,7 +16,7 @@ export const Layout = ({ asset }: LayoutProps) => {
         </div>
         <div className="space-y-0.5 border-r border-[var(--color-border)] last:border-none">
           <dt className="font-medium text-[var(--color-muted)]">Type</dt>
-          <dd className="font-semibold capitalize">{asset.visualTypes}</dd>
+          <dd className="font-semibold capitalize">{asset.visualTypes?.[0]}</dd>
         </div>
         <div className="space-y-0.5 border-r border-[var(--color-border)] last:border-none">
           <dt className="font-medium text-[var(--color-muted)]">Pages No.</dt>

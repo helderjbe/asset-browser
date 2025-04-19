@@ -76,6 +76,7 @@ export const assets: Asset[] = [
     uses: 999,
     updatedAt: "2024/07/02",
     kpisUsed: ["kpi-1", "kpi-2"],
+    visualTypes: ["Universal"],
   },
   {
     id: "layout-2",
@@ -88,6 +89,7 @@ export const assets: Asset[] = [
     uses: 999,
     updatedAt: "2024/07/02",
     kpisUsed: ["kpi-1", "kpi-2"],
+    visualTypes: ["Universal"],
   },
   {
     id: "storyboard-1",
