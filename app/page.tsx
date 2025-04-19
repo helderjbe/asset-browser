@@ -1,5 +1,6 @@
 "use client";
 
+import { assets } from "../data/assets";
 import { AssetCard } from "../components/AssetCard";
 import { useMemo, useState } from "react";
 
