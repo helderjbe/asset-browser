@@ -32,12 +32,18 @@ export default function LibraryPage() {
   const filteredAssets = useMemo(() => {
     const lower = query.toLowerCase();
     return assets.filter((asset) => {
-      return (
+      const matchesQuery =
         asset.name.toLowerCase().includes(lower) ||
-        (asset.description ?? "").toLowerCase().includes(lower)
-      );
+        (asset.description ?? "").toLowerCase().includes(lower);
+      const matchesTab =
+        !query &&
+        (activeTab === "Featured" ||
+          (activeTab === "KPI" && asset.type === "kpi") ||
+          (activeTab === "Layouts" && asset.type === "layout") ||
+          (activeTab === "Storyboards" && asset.type === "storyboard"));
+      return matchesQuery && (query ? true : matchesTab);
     });
-  }, [query]);
+  }, [query, activeTab]);
 
   const sections = useMemo(() => {
     return ["Featured", "Trending"].map((section) => ({
@@ -117,6 +123,16 @@ export default function LibraryPage() {
             <p className="col-span-full text-center text-[var(--color-muted)]">
               No assets found.
             </p>
+          )}
+          {query && (
+            <div className="col-span-full text-center mt-4">
+              <button
+                className="text-sm text-primary hover:underline"
+                onClick={() => setQuery("")}
+              >
+                Clear Search
+              </button>
+            </div>
           )}
         </section>
       )}
