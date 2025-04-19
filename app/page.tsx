@@ -50,11 +50,13 @@ export default function LibraryPage() {
         />
       </div>
 
-      <Tabs
-        tabs={TAB_LABELS}
-        activeTab={activeTab}
-        onChange={(t: Tab) => setActiveTab(t)}
-      />
+      {!query && (
+        <Tabs
+          tabs={TAB_LABELS}
+          activeTab={activeTab}
+          onChange={(t: Tab) => setActiveTab(t)}
+        />
+      )}
 
       {!query && activeTab === "Featured" ? (
         <FeaturedSections
