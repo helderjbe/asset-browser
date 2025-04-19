@@ -39,6 +39,12 @@
 }
 
 @layer components {
+  .card {
+    @apply flex gap-4 items-start p-4 rounded-[var(--radius-md)]
+           bg-[var(--color-surface)] border border-[var(--color-border)]
+           shadow-[var(--shadow-card)];
+  }
+
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-[var(--radius-md)]
            bg-[var(--color-primary)] px-3 py-2 text-xs text-white font-medium
